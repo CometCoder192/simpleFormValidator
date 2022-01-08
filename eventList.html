@@ -1,0 +1,47 @@
+<!--
+
+Idea - Make a form validator with only one inp and with keyboard event listeners
+
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Form Validator</title>
+	<meta charset="utf-8">
+
+	<style>
+		body {
+			background:black;
+			color:white;
+			overflow: hidden;
+		}
+		* {
+			padding: 2rem;
+			margin: 2rem;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<h1>Please enter the password</h1>
+	<input type="text" id="inp">
+
+	<button id="btn">Click</button>
+	<div id="empty"></div>
+
+	<script type="text/javascript">
+		var inp = document.getElementById("inp");
+		var btn = document.getElementById("btn");
+		var empty = document.getElementById("empty");
+
+		document.addEventListener("keydown", function(e) {
+			if (e.keyCode == 13 && inp.value === "") {
+				empty.innerHTML = "Please enter the <strong>password</strong>"
+			} else if (e.keyCode == 13 && inp.value !== "") {
+				empty.innerHTML = "Thank you for signing in"
+			}
+		})
+	</script>
+</body>
+</html>
